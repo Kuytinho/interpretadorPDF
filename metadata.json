@@ -1,0 +1,5 @@
+{
+  "name": "Interpretador de Páginas de PDF",
+  "description": "Uma aplicação que lê um arquivo PDF página por página, usando IA para interpretar todo o conteúdo, incluindo texto, imagens e tabelas, e então compila as interpretações em um arquivo de texto para download.",
+  "requestFramePermissions": []
+}
