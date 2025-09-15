@@ -37,7 +37,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }) => {
     }
   }, [onFileSelect, handleDragEvents]);
 
-  const dragOverClass = isDragging ? 'border-indigo-500 bg-gray-700/50 scale-105' : 'border-gray-600 hover:border-indigo-600';
+  const dragOverClass = isDragging ? 'border-[#47E5BC] bg-[#81E4DA]/20 scale-105' : 'border-[#9F9FAD]/50 hover:border-[#47E5BC]';
 
   return (
     <div
@@ -47,12 +47,12 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }) => {
       onDragOver={(e) => handleDragEvents(e, true)}
       onDrop={handleDrop}
     >
-      <DocumentIcon className="w-16 h-16 text-gray-500 mb-4" />
+      <DocumentIcon className="w-16 h-16 text-[#9F9FAD] mb-4" />
       <p className="text-lg font-semibold text-gray-300">Arraste e solte seu PDF aqui</p>
-      <p className="text-gray-500 my-2">ou</p>
+      <p className="text-[#9F9FAD] my-2">ou</p>
       <label
         htmlFor="file-upload"
-        className="cursor-pointer px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-300"
+        className="cursor-pointer px-6 py-2 bg-[#47E5BC] hover:bg-[#81E4DA] text-black font-semibold rounded-lg shadow-md transition-colors duration-300"
       >
         Selecionar Arquivo
       </label>

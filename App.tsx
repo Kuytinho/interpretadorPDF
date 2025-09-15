@@ -65,12 +65,12 @@ const App: React.FC = () => {
         );
       case AppStatus.ERROR:
         return (
-          <div className="text-center p-8 bg-gray-800 rounded-lg shadow-lg">
+          <div className="text-center p-8 bg-[#93748A]/20 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-red-400 mb-4">Ocorreu um Erro</h2>
             <p className="text-gray-300 mb-6">{appState.error}</p>
             <button
               onClick={handleReset}
-              className="px-6 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors duration-300"
+              className="px-6 py-2 bg-[#47E5BC] hover:bg-[#81E4DA] text-black font-semibold rounded-lg shadow-md transition-colors duration-300"
             >
               Começar de Novo
             </button>
@@ -82,20 +82,20 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col items-center justify-center p-4 font-sans">
+    <div className="min-h-screen bg-[#2B2228] text-gray-200 flex flex-col items-center justify-center p-4 font-sans">
       <div className="w-full max-w-2xl mx-auto">
         <header className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-500">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#47E5BC] to-[#81E4DA]">
             Interpretador de Páginas de PDF
           </h1>
-          <p className="mt-2 text-lg text-gray-400">
+          <p className="mt-2 text-lg text-[#AECFDF]">
             Envie um PDF para obter uma interpretação completa de cada página com o poder da IA.
           </p>
         </header>
-        <main className="bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-2xl p-6 border border-gray-700">
+        <main className="bg-[#93748A]/10 backdrop-blur-sm rounded-xl shadow-2xl p-6 border border-[#9F9FAD]/30">
           {renderContent()}
         </main>
-        <footer className="text-center mt-8 text-gray-500 text-sm">
+        <footer className="text-center mt-8 text-[#9F9FAD] text-sm">
           <p>Desenvolvido com Gemini AI</p>
         </footer>
       </div>
