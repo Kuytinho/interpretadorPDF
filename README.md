@@ -1,20 +1,65 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Executar e publicar seu app no AI Studio
 
-# Run and deploy your AI Studio app
+Visualize sua app no AI Studio: https://ai.studio/apps/drive/1ev43eHOSDPG3ATwGy-vrJXSKoKEtJc3t
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1ev43eHOSDPG3ATwGy-vrJXSKoKEtJc3t
+## Descrição
+Este projeto é uma **aplicação para interpretar PDFs**: ele extrai o conteúdo de arquivos PDF e envia esse conteúdo para a **API da OpenAI (ChatGPT)** junto com um **prompt bem detalhado e elaborado** para obter interpretações, resumos, extração de dados estruturados, análises ou qualquer outro processamento textual desejado.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## Pré-requisitos
+- Node.js instalado
+- Chave de API da OpenAI (definida em variáveis de ambiente)
+
+---
+
+## Executar localmente
+
+1. Instale as dependências:
+
+npm install
+
+2. Crie (ou edite) o arquivo `.env.local` e defina sua chave:
+
+VITE_OPENAI_API_KEY=sk-INSIRA_SUA_CHAVE_AQUI
+ **Importante:** nunca comite seu `.env.local` com a chave para repositórios públicos.
+
+3. Rode a aplicação em modo de desenvolvimento:
+
+npm run dev
+
+4. (Opcional) Build para produção:
+
+npm run build
+
+## O que o projeto faz (resumido)
+- Recebe uploads de PDF na interface (ou outro fluxo de entrada).
+- Extrai texto/metadados do PDF (processo interno do app).
+- Constrói e envia um **prompt detalhado** para a API do ChatGPT para:
+  - Resumir o conteúdo;
+  - Extrair tabelas, datas, entidades ou campos específicos;
+  - Gerar Q&A sobre o documento;
+  - Classificar ou etiquetar se necessário.
+- Exibe as respostas retornadas pela API na interface.
+
+---
+
+## Variáveis de ambiente
+- `VITE_OPENAI_API_KEY` — chave da OpenAI usada pelo cliente/servidor (dependendo da arquitetura do seu projeto).
+
+---
+
+## Segurança e boas práticas
+- Não exponha a chave em repositórios públicos.
+- Se estiver chamando a API diretamente do front-end, considere usar um backend/proxy para esconder a chave e controlar quotas/validações.
+- Valide e sanitize PDFs e inputs antes de processar.
+
+---
+
+## Links úteis
+- AI Studio (visualizar app): https://ai.studio/apps/drive/1ev43eHOSDPG3ATwGy-vrJXSKoKEtJc3t
+- Documentação da API da OpenAI (referência).
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
