@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { interpretPageImage } from '../services/geminiService';
+import { interpretPageImage } from '../services/chatgptService';
 import type { ProcessingState } from '../types';
 
 // This is a workaround for using pdf.js from a CDN in a module environment
