@@ -1,6 +1,4 @@
-# Executar e publicar seu app no AI Studio
-
-Visualize sua app no AI Studio: https://ai.studio/apps/drive/1ev43eHOSDPG3ATwGy-vrJXSKoKEtJc3t
+# Aplicação feita com ajuda do Google AI Studio
 
 ---
 
@@ -58,8 +56,5 @@ npm run build
 
 ---
 
-## Links úteis
-- AI Studio (visualizar app): https://ai.studio/apps/drive/1ev43eHOSDPG3ATwGy-vrJXSKoKEtJc3t
-- Documentação da API da OpenAI (referência).
 
 
