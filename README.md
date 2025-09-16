@@ -1,4 +1,4 @@
-# Aplicação feita com ajuda do Google AI Studio
+# Interpretador De PDF
 
 ---
 
@@ -55,6 +55,9 @@ npm run build
 - Valide e sanitize PDFs e inputs antes de processar.
 
 ---
+
+## Aplicação feita com ajuda do Google AI Studio
+
 
 
 
