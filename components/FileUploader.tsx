@@ -37,22 +37,25 @@ const FileUploader: React.FC<FileUploaderProps> = ({ onFileSelect }) => {
     }
   }, [onFileSelect, handleDragEvents]);
 
-  const dragOverClass = isDragging ? 'border-[#47E5BC] bg-[#81E4DA]/20 scale-105' : 'border-[#9F9FAD]/50 hover:border-[#47E5BC]';
+  const baseClass = 'relative flex flex-col items-center justify-center w-full p-8 border-2 border-dashed rounded-lg transition-all duration-300 bg-black/20';
+  const defaultStateClass = 'border-[#47E5BC]/40 hover:border-[#47E5BC] shadow-[inset_0_0_10px_rgba(71,229,188,0.1)]';
+  const dragOverClass = 'border-[#47E5BC] bg-[#47E5BC]/20 scale-105 shadow-[inset_0_0_25px_rgba(71,229,188,0.4)]';
 
   return (
     <div
-      className={`relative flex flex-col items-center justify-center w-full p-8 border-2 border-dashed rounded-lg transition-all duration-300 ${dragOverClass}`}
+      className={`${baseClass} ${isDragging ? dragOverClass : defaultStateClass}`}
       onDragEnter={(e) => handleDragEvents(e, true)}
       onDragLeave={(e) => handleDragEvents(e, false)}
       onDragOver={(e) => handleDragEvents(e, true)}
       onDrop={handleDrop}
     >
-      <DocumentIcon className="w-16 h-16 text-[#9F9FAD] mb-4" />
-      <p className="text-lg font-semibold text-gray-300">Arraste e solte seu PDF aqui</p>
-      <p className="text-[#9F9FAD] my-2">ou</p>
+      <DocumentIcon className="w-16 h-16 text-[#47E5BC] mb-4" style={{ filter: 'drop-shadow(0 0 5px #47E5BC)' }} />
+      <p className="text-lg font-semibold text-gray-200">Arraste e solte seu PDF aqui</p>
+      <p className="text-gray-400 my-2">ou</p>
       <label
         htmlFor="file-upload"
-        className="cursor-pointer px-6 py-2 bg-[#47E5BC] hover:bg-[#81E4DA] text-black font-semibold rounded-lg shadow-md transition-colors duration-300"
+        className="cursor-pointer px-6 py-2 bg-[#47E5BC] hover:bg-[#81E4DA] text-[#013438] font-semibold rounded-lg shadow-md transition-all duration-300 hover:scale-105"
+        style={{ boxShadow: '0 0 8px rgba(71, 229, 188, 0.5), 0 0 15px rgba(71, 229, 188, 0.3)' }}
       >
         Selecionar Arquivo
       </label>

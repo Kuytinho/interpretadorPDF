@@ -12,18 +12,18 @@ const ProcessingView: React.FC<ProcessingViewProps> = ({ currentPage, totalPages
 
   return (
     <div className="flex flex-col items-center justify-center p-8 text-center">
-      <SpinnerIcon className="w-16 h-16 text-[#47E5BC]" />
-      <h2 className="text-2xl font-bold mt-6 mb-2 text-gray-200">Processando PDF...</h2>
-      <p className="text-[#AECFDF] mb-6">{currentTask}</p>
+      <SpinnerIcon className="w-16 h-16 text-[#47E5BC]" style={{ filter: 'drop-shadow(0 0 5px #47E5BC)' }}/>
+      <h2 className="text-2xl font-bold mt-6 mb-2 text-white" style={{ textShadow: '0 0 4px #47E5BC' }}>Processando PDF...</h2>
+      <p className="text-gray-300 mb-6">{currentTask}</p>
       
-      <div className="w-full bg-[#9F9FAD]/30 rounded-full h-2.5">
+      <div className="w-full bg-black/30 rounded-full h-2.5">
         <div
-          className="bg-gradient-to-r from-[#47E5BC] to-[#81E4DA] h-2.5 rounded-full transition-all duration-500"
-          style={{ width: `${progressPercentage}%` }}
+          className="bg-[#47E5BC] h-2.5 rounded-full transition-all duration-500"
+          style={{ width: `${progressPercentage}%`, boxShadow: '0 0 8px #47E5BC' }}
         ></div>
       </div>
       
-      <p className="mt-3 text-lg font-semibold text-gray-300">
+      <p className="mt-3 text-lg font-semibold text-gray-200">
         Página {currentPage} de {totalPages}
       </p>
     </div>
