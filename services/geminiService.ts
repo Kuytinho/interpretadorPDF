@@ -1,16 +1,10 @@
-import { GoogleGenAI } from "@google/genai";
+// Pega a chave da API do arquivo .env
+const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
-// This check is for robustness, but the app assumes the API key is provided.
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set.");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+console.log("Using OpenAI API Key:", apiKey ? "Provided" : "Not Provided");
 
 /**
- * Sends a PDF page image (as a base64 string) to the Gemini API for interpretation.
- * @param base64Image The base64 encoded string of the image (without the data URL prefix).
- * @returns A text interpretation from the AI.
+ * Envia uma imagem de página de PDF (em base64) para a API da OpenAI.
  */
 export async function interpretPageImage(base64Image: string): Promise<string> {
   const prompt = `
@@ -24,35 +18,35 @@ export async function interpretPageImage(base64Image: string): Promise<string> {
   `;
 
   try {
-    const imagePart = {
-      inlineData: {
-        mimeType: 'image/jpeg',
-        data: base64Image,
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`, // agora pega da env certa
+        "Content-Type": "application/json"
       },
-    };
-
-    const textPart = {
-      text: prompt
-    };
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: { parts: [imagePart, textPart] },
+      body: JSON.stringify({
+        model: "gpt-4.1", // ou gpt-4o / gpt-4o-mini
+        messages: [
+          {
+            role: "user",
+            content: [
+              { type: "text", text: prompt },
+              {
+                type: "image_url",
+                image_url: {
+                  url: `data:image/jpeg;base64,${base64Image}`
+                }
+              }
+            ]
+          }
+        ]
+      })
     });
 
-    return response.text;
-
+    const data = await response.json();
+    return data.choices?.[0]?.message?.content ?? "";
   } catch (error: any) {
-    console.error("Error interpreting page with Gemini API:", error);
-    let errorMessage = "Ocorreu um erro desconhecido ao contatar o serviço de IA.";
-    if (error instanceof Error) {
-        errorMessage = error.message;
-    }
-    
-    if (errorMessage.includes('API key not valid')) {
-        return `[Erro de IA: A chave da API não é válida. Por favor, verifique se está configurada corretamente.]`;
-    }
-    
-    return `[Erro de IA: Falha ao interpretar a página. Motivo: ${errorMessage}]`;
+    console.error("Error interpreting page with OpenAI API:", error);
+    return `[AI Error: ${error.message ?? "Unknown"}]`;
   }
 }

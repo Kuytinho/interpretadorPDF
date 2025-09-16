@@ -97,7 +97,7 @@ const App: React.FC = () => {
           {renderContent()}
         </main>
         <footer className="text-center mt-8 text-sm text-[#AECFDF]" style={{ textShadow: '0 0 2px #47E5BC' }}>
-          <p>Desenvolvido com Gemini AI</p>
+          <p>Desenvolvido por Lucas Carvalho de Medeiros</p>
         </footer>
       </div>
     </div>
