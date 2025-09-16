@@ -58,6 +58,9 @@ npm run build
 
 ## Aplicação feita com ajuda do Google AI Studio
 
+A aplicação foi inicialmente criada com a ajuda do **AI Studio** para estruturar os passos básicos, e depois foi refinada e ajustada manualmente para atender às necessidades específicas do projeto.
+
+
 
 
 
